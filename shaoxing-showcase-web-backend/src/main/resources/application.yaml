@@ -2,9 +2,9 @@ spring:
   application:
     name: shaoxing-showcase-web-backend
   datasource:
-    url: "jdbc:mysql://sql.wsfdb.cn:3306/HexWarrior6shaoxingshowcase?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai"
-    username: "HexWarrior6shaoxingshowcase"
-    password: "DUn98sLBWXr3N6Tu7mwF"
+    url: "jdbc:mysql://120.26.144.127:3306/HexWarrior6shaoxingshowcase?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8"
+    username: "root"
+    password: "Mzk2005123"
     driver-class-name: com.mysql.cj.jdbc.Driver
 mybatis:
   configuration:
