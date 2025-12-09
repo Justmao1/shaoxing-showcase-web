@@ -12,33 +12,33 @@
 ## 📸 项目演示
 ### 美食展示模块
 记录绍兴特色美食，支持展示、添加、详情和编辑功能。
-<center class="half">
+<div class="half" style="text-align: center;">
 <img height="200" src="doc/screenshot/local-food.png" alt="美食展示列表页" style="max-width: 800px; margin: 10px 0;"> <img height="200" src="doc/screenshot/local-food-add.png" alt="美食添加页" style="max-width: 800px; margin: 10px 0;"> <img height="200" src="doc/screenshot/local-food-detail.png" alt="美食详情页" style="max-width: 800px; margin: 10px 0;"> <img height="200" src="doc/screenshot/local-food-edit.png" alt="美食编辑页" style="max-width: 800px; margin: 10px 0;">
-</center>
+</div>
 
 ### 文化展示模块
 展现绍兴独特的文化特色，包含展示、详情和编辑功能。
-<center class="half">
+<div class="half" style="text-align: center;">
 <img height="200" src="doc/screenshot/local-culture.png" alt="文化展示列表页" style="max-width: 800px; margin: 10px 0;"> <img height="200" src="doc/screenshot/local-culture-detail.png" alt="文化展示详情页" style="max-width: 800px; margin: 10px 0;"> <img height="200" src="doc/screenshot/local-culture-edit.png" alt="文化展示编辑页" style="max-width: 800px; margin: 10px 0;">
-</center>
+</div>
 
 ### 景点展示模块
 展示绍兴著名景点，包含列表、详情和编辑功能。
-<center class="half">
+<div class="half" style="text-align: center;">
 <img height="200" src="doc/screenshot/local-sight.png" alt="景点展示列表页" style="max-width: 800px; margin: 10px 0;"> <img height="200" src="doc/screenshot/local-sight-detail.png" alt="景点详情页" style="max-width: 800px; margin: 10px 0;"> <img height="200" src="doc/screenshot/local-sight-edit.png" alt="景点编辑页" style="max-width: 800px; margin: 10px 0;">
-</center>
+</div>
 
 ### 用户认证模块
 完整的用户认证系统，包含登录、注册和密码找回功能。
-<center class="half">
+<div class="half" style="text-align: center;">
 <img height="200" src="doc/screenshot/login.png" alt="登录页面" style="max-width: 800px; margin: 10px 0;"> <img height="200" src="doc/screenshot/register.png" alt="注册页面" style="max-width: 800px; margin: 10px 0;"> <img height="200" src="doc/screenshot/reset-password.png" alt="密码重置页面" style="max-width: 800px; margin: 10px 0;">
-</center>
+</div>
 
 ### 用户信息管理模块
 提供用户信息的查看和编辑功能。
-<center class="half">
+<div class="half" style="text-align: center;">
 <img height="200" src="doc/screenshot/user-detail-edit.png" alt="用户信息编辑页" style="max-width: 800px; margin: 10px 0;">
-</center>
+</div>
 
 ## 🏗️ 项目结构
 
@@ -224,7 +224,3 @@ npm run dev
 - 自动导入插件组合拳 (优化开发体验)
     - Unplugin-auto-import (^0.19.0)
     - Unplugin-vue-components (^0.28.0)
-
-## 🧑‍💻 作者
-
-<img src="https://foruda.gitee.com/avatar/1698061097111753136/11410858_hexwarrior6_1698061097.png" alt="头像" width="30" style="vertical-align: middle; border-radius: 50%;"/>[ HexWarrior6](https://gitee.com/hexwarrior6)
