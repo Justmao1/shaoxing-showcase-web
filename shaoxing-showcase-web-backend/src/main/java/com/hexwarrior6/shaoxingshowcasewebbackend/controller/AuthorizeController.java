@@ -74,7 +74,9 @@ public class AuthorizeController {
             @RequestParam("validate_code") String validateCode,
             HttpSession session) {
         if (validateCode == null || validateCode.isEmpty()) {
-            if (accountService.isUsernameExist(username)) {
+            if (accountService.isEmailOrUsernameExist(email)) {
+                return RestBean.failure(400, "该邮箱已被注册，请换个邮箱试试");
+            } else if (accountService.isUsernameExist(username)) {
                 return RestBean.failure(400, "用户名已存在");
             } else {
                 accountService.registerAccount(username, email, password);
