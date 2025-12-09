@@ -26,16 +26,20 @@ public class AuthorizeController {
     @PostMapping("/validate-email-register")
     public RestBean<String> validateEmailRegister(@Email @RequestParam("email") String email, HttpSession session) {
         RestBean<String> failure = detectEvilAcquire(session);
-        if (failure != null) return failure;
-        if (accountService.isEmailOrUsernameExist(email)) return RestBean.failure(400, "该邮箱已被注册");
+        if (failure != null)
+            return failure;
+        if (accountService.isEmailOrUsernameExist(email))
+            return RestBean.failure(400, "该邮箱已被注册");
         return sendValidateEmail(email, session);
     }
 
     @PostMapping("/validate-email-reset-password")
     public RestBean<String> validateEmail(@Email @RequestParam("email") String email, HttpSession session) {
         RestBean<String> failure = detectEvilAcquire(session);
-        if (failure != null) return failure;
-        if (!accountService.isEmailOrUsernameExist(email)) return RestBean.failure(400, "该邮箱尚未注册");
+        if (failure != null)
+            return failure;
+        if (!accountService.isEmailOrUsernameExist(email))
+            return RestBean.failure(400, "该邮箱尚未注册");
         return sendValidateEmail(email, session);
     }
 
@@ -63,23 +67,36 @@ public class AuthorizeController {
     }
 
     @PostMapping("/register")
-    public RestBean<String> register(@Pattern(regexp = USERNAME_REGEX) @Length(min = 5, max = 20) @RequestParam("username") String username, // 此处使用了@Length注解，确保输入的长度不小于5不大于20
-                                     @Email @RequestParam("email") String email, // 此处使用了@Email注解，确保输入的是邮箱格式
-                                     @Length(min = 5, max = 20) @RequestParam("password") String password,
-                                     @RequestParam("validate_code") String validateCode,
-                                     HttpSession session) {
+    public RestBean<String> register(
+            @Pattern(regexp = USERNAME_REGEX) @Length(min = 5, max = 20) @RequestParam("username") String username, // 此处使用了@Length注解，确保输入的长度不小于5不大于20
+            @Email @RequestParam("email") String email, // 此处使用了@Email注解，确保输入的是邮箱格式
+            @Length(min = 5, max = 20) @RequestParam("password") String password,
+            @RequestParam("validate_code") String validateCode,
+            HttpSession session) {
+        if (validateCode == null || validateCode.isEmpty()) {
+            if (accountService.isUsernameExist(username)) {
+                return RestBean.failure(400, "用户名已存在");
+            } else {
+                accountService.registerAccount(username, email, password);
+                return RestBean.success("注册成功");
+            }
+        }
+
         String sessionCode = (String) session.getAttribute("validateCode");
         String sessionEmail = (String) session.getAttribute("email");
         String validateCodeTime = (String) session.getAttribute("validateCodeTime");
         String currentTime = String.valueOf(System.currentTimeMillis() / 60000);
-        if (sessionCode == null || sessionEmail == null || !sessionEmail.equals(email)) return RestBean.failure(400, "请先获取验证码");
-        else if (!sessionCode.equals(validateCode)) return RestBean.failure(400, "验证码不正确");
+        if (sessionCode == null || sessionEmail == null || !sessionEmail.equals(email))
+            return RestBean.failure(400, "请先获取验证码");
+        else if (!sessionCode.equals(validateCode))
+            return RestBean.failure(400, "验证码不正确");
         else if (Integer.parseInt(currentTime) > Integer.parseInt(validateCodeTime) + 5) {
             session.removeAttribute("email");
             session.removeAttribute("validateCode");
             session.removeAttribute("validateCodeTime"); // 清除垃圾数据
             return RestBean.failure(400, "验证码已过期，请重新获取");
-        } else if (accountService.isUsernameExist(username)) return RestBean.failure(400, "用户名已存在");
+        } else if (accountService.isUsernameExist(username))
+            return RestBean.failure(400, "用户名已存在");
         else {
             accountService.registerAccount(username, email, password);
             session.removeAttribute("email");
@@ -91,14 +108,16 @@ public class AuthorizeController {
 
     @PostMapping("reset-password-step1")
     public RestBean<String> resetPassword(@Email @RequestParam("email") String email,
-                                          @RequestParam("validate_code") String validateCode,
-                                          HttpSession session) {
+            @RequestParam("validate_code") String validateCode,
+            HttpSession session) {
         String sessionCode = (String) session.getAttribute("validateCode");
         String sessionEmail = (String) session.getAttribute("email");
         String validateCodeTime = (String) session.getAttribute("validateCodeTime");
         String currentTime = String.valueOf(System.currentTimeMillis() / 60000);
-        if (sessionCode == null || sessionEmail == null || !sessionEmail.equals(email)) return RestBean.failure(400, "请先获取验证码");
-        else if (!sessionCode.equals(validateCode)) return RestBean.failure(400, "验证码不正确");
+        if (sessionCode == null || sessionEmail == null || !sessionEmail.equals(email))
+            return RestBean.failure(400, "请先获取验证码");
+        else if (!sessionCode.equals(validateCode))
+            return RestBean.failure(400, "验证码不正确");
         else if (Integer.parseInt(currentTime) > Integer.parseInt(validateCodeTime) + 5) {
             session.removeAttribute("email");
             session.removeAttribute("validateCode");
@@ -114,9 +133,11 @@ public class AuthorizeController {
     }
 
     @PostMapping("reset-password-step2")
-    public RestBean<String> resetPassword(@Length(min = 5, max = 20) @RequestParam("password") String password, HttpSession session) {
+    public RestBean<String> resetPassword(@Length(min = 5, max = 20) @RequestParam("password") String password,
+            HttpSession session) {
         String sessionValidatedEmail = (String) session.getAttribute("ValidatedEmail");
-        if (sessionValidatedEmail == null) return RestBean.failure(400, "尚未验证电子邮件");
+        if (sessionValidatedEmail == null)
+            return RestBean.failure(400, "尚未验证电子邮件");
         try {
             if (accountService.resetPassword(sessionValidatedEmail, password)) {
                 session.removeAttribute("ValidatedEmail");

@@ -29,20 +29,6 @@ const register = () => {
   });
 };
 
-const getValidateCode = () => {
-  if (!isEmailValid) {
-    ElMessage.warning('请检查您的邮件地址是否正确！')
-  } else {
-    coldDownTime.value = 60
-    post('api/auth/validate-email-register', {
-      email: form.email,
-    }, (code, data, message) => {
-      ElMessage.success(data)
-      setInterval(() => coldDownTime.value--, 1000) // 设置定时器，每秒钟减一
-    })
-  }
-}
-
 const validateUsername = (rule, value, callback) => {
   if (value === '') {
     callback(new Error('请输入用户名'))
@@ -80,9 +66,6 @@ const register_checker = {
   ,
   email: [
     {type: 'email', required: true, message: '请输入邮箱地址', trigger: ['blur', 'change']},
-  ],
-  validate_code: [
-    {required: true, message: '请输入验证码', trigger: 'blur'}
   ]
 }
 
@@ -143,19 +126,7 @@ const onValidate = (prop, isValid) => {
       </el-form-item>
 
       <!-- 邮件验证码 -->
-      <el-form-item prop="validate_code">
-        <el-row style="width: 100%;">
-          <el-col :span="16">
-            <el-input v-model="form.validate_code" type="text" placeholder="验证码" prefix-icon="Bell"/>
-          </el-col>
-          <el-col :span="1"></el-col>
-          <el-col :span="7">
-            <el-button :disabled="!isEmailValid || coldDownTime > 0" @click="getValidateCode" plain>
-              {{coldDownTime > 0 ? coldDownTime + 's 后获取' : '获取验证码'}}
-            </el-button>
-          </el-col>
-        </el-row>
-      </el-form-item>
+
     </el-form>
 
     <!-- 注册按钮 -->
