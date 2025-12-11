@@ -1,6 +1,7 @@
 # 🏮 绍兴展示网站 (Shaoxing Showcase Web)
 
-欢迎来到绍兴展示网站项目！让我们一起打造一个展现绍兴独特魅力的网上平台~ 🌟
+
+欢迎来到绍兴展示网站项目！这是一个展现绍兴独特魅力的网上平台~ 🌟
 
 ## ✨ 项目介绍
 
@@ -13,31 +14,31 @@
 ### 美食展示模块
 记录绍兴特色美食，支持展示、添加、详情和编辑功能。
 <div style="text-align: center;">
-<img height="250" src="doc/screenshot/local-food.png" alt="美食展示列表页" style="max-width: 800px; margin: 10px 0;"> <img height="250" src="doc/screenshot/local-food-add.png" alt="美食添加页" style="max-width: 800px; margin: 10px 0;"> <img height="250" src="doc/screenshot/local-food-detail.png" alt="美食详情页" style="max-width: 800px; margin: 10px 0;"> <img height="250" src="doc/screenshot/local-food-edit.png" alt="美食编辑页" style="max-width: 800px; margin: 10px 0;">
+<img height="210" src="doc/screenshot/local-food.png" alt="美食展示列表页" style="max-width: 800px; margin: 10px 0;"> <img height="210" src="doc/screenshot/local-food-add.png" alt="美食添加页" style="max-width: 800px; margin: 10px 0;"> <img height="210" src="doc/screenshot/local-food-detail.png" alt="美食详情页" style="max-width: 800px; margin: 10px 0;"> <img height="210" src="doc/screenshot/local-food-edit.png" alt="美食编辑页" style="max-width: 800px; margin: 10px 0;">
 </div>
 
 ### 文化展示模块
 展现绍兴独特的文化特色，包含展示、详情和编辑功能。
 <div style="text-align: center;">
-<img height="250" src="doc/screenshot/local-culture.png" alt="文化展示列表页" style="max-width: 800px; margin: 10px 0;"> <img height="250" src="doc/screenshot/local-culture-detail.png" alt="文化展示详情页" style="max-width: 800px; margin: 10px 0;"> <img height="250" src="doc/screenshot/local-culture-edit.png" alt="文化展示编辑页" style="max-width: 800px; margin: 10px 0;">
+<img height="210" src="doc/screenshot/local-culture.png" alt="文化展示列表页" style="max-width: 800px; margin: 10px 0;"> <img height="210" src="doc/screenshot/local-culture-detail.png" alt="文化展示详情页" style="max-width: 800px; margin: 10px 0;"> <img height="210" src="doc/screenshot/local-culture-edit.png" alt="文化展示编辑页" style="max-width: 800px; margin: 10px 0;">
 </div>
 
 ### 景点展示模块
 展示绍兴著名景点，包含列表、详情和编辑功能。
 <div style="text-align: center;">
-<img height="250" src="doc/screenshot/local-sight.png" alt="景点展示列表页" style="max-width: 800px; margin: 10px 0;"> <img height="250" src="doc/screenshot/local-sight-detail.png" alt="景点详情页" style="max-width: 800px; margin: 10px 0;"> <img height="250" src="doc/screenshot/local-sight-edit.png" alt="景点编辑页" style="max-width: 800px; margin: 10px 0;">
+<img height="210" src="doc/screenshot/local-sight.png" alt="景点展示列表页" style="max-width: 800px; margin: 10px 0;"> <img height="210" src="doc/screenshot/local-sight-detail.png" alt="景点详情页" style="max-width: 800px; margin: 10px 0;"> <img height="210" src="doc/screenshot/local-sight-edit.png" alt="景点编辑页" style="max-width: 800px; margin: 10px 0;">
 </div>
 
 ### 用户认证模块
 完整的用户认证系统，包含登录、注册和密码找回功能。
 <div style="text-align: center;">
-<img height="250" src="doc/screenshot/login.png" alt="登录页面" style="max-width: 800px; margin: 10px 0;"> <img height="250" src="doc/screenshot/register.png" alt="注册页面" style="max-width: 800px; margin: 10px 0;"> <img height="250" src="doc/screenshot/reset-password.png" alt="密码重置页面" style="max-width: 800px; margin: 10px 0;">
+<img height="210" src="doc/screenshot/login.png" alt="登录页面" style="max-width: 800px; margin: 10px 0;"> <img height="210" src="doc/screenshot/register.png" alt="注册页面" style="max-width: 800px; margin: 10px 0;"> <img height="210" src="doc/screenshot/reset-password.png" alt="密码重置页面" style="max-width: 800px; margin: 10px 0;">
 </div>
 
 ### 用户信息管理模块
 提供用户信息的查看和编辑功能。
 <div style="text-align: center;">
-<img height="250" src="doc/screenshot/user-detail-edit.png" alt="用户信息编辑页" style="max-width: 800px; margin: 10px 0;">
+<img height="210" src="doc/screenshot/user-detail-edit.png" alt="用户信息编辑页" style="max-width: 800px; margin: 10px 0;">
 </div>
 
 ## 🏗️ 项目结构
@@ -149,7 +150,19 @@ erDiagram
 ```
 <div style="font-size:14px;color:gray;text-decoration:underline; text-align: center;">图2.数据库ER图</div>
 
-## 🛠️ 快速开始
+
+## 🛠️ 环境要求 (Prerequisites)
+
+在开始部署之前，请确保您的开发环境满足以下要求：
+
+| 组件 | 要求版本 | 说明 |
+| :--- | :--- | :--- |
+| **Java** | JDK 17+ | 后端运行环境 |
+| **Node.js** | v18.0.0+ | 前端构建环境 (推荐 LTS 版本) |
+| **MySQL** | 8.0+ | 数据库服务 |
+| **Maven** | 3.6+ | 项目构建工具 |
+
+## 🚀 快速开始
 
 ```bash
 # 克隆前后端项目到本地
@@ -158,14 +171,21 @@ git clone https://gitee.com/HexWarrior6/shaoxing-showcase-web.git
 
 ### 后端环境准备
 
-1. 📥 安装 Maven
-2. 📂 用你喜欢的 IDE 打开项目
-3. 🗃️ 配置 MySQL 数据库并导入项目中的 [hexwarrior6shaoxingshowcase.sql](doc/deploy/hexwarrior6shaoxingshowcase.sql) 文件。
+1. 📥 安装 Maven 和 JDK 17
+2. 📂 用你喜欢的 IDE (如 IntelliJ IDEA) 打开项目
+3. 🗃️ 配置 MySQL 数据库：
+   - 创建数据库 `HexWarrior6shaoxingshowcase`
+   - 导入项目中的 [hexwarrior6shaoxingshowcase.sql](doc/deploy/hexwarrior6shaoxingshowcase.sql) 文件
+4. ⚙️ **配置修改**：修改 `src/main/resources/application.yaml` 中的数据库连接信息（如用户名、密码）以匹配您的本地环境。
 
 ### 前端环境准备
 
-1. 📦 安装 Node.js
-2. ⚡ 运行 `npm install` 安装依赖
+1. 📦 安装 Node.js (v18+)
+2. ⚡ 进入前端目录并安装依赖：
+   ```bash
+   cd shaoxing-showcase-web-frontend
+   npm install
+   ```
 3. 🚀 启动开发服务器
 
 ## 🎮 运行项目
@@ -174,18 +194,15 @@ git clone https://gitee.com/HexWarrior6/shaoxing-showcase-web.git
 
 > 选择以下任意一种方式
 
-- 使用maven运行
+- 使用 Maven 运行
 
 ```bash
 # 进入后端文件夹
 cd shaoxing-showcase-web-backend
-```
-
-```bash
 mvn spring-boot:run
 ```
 
-- 直接在 IDE 中运行
+- 或直接在 IDE (IntelliJ IDEA) 中运行 `SubjectApplication` 类
 
 ### 前端启动
 
@@ -195,16 +212,15 @@ cd shaoxing-showcase-web-frontend
 ```
 
 ```bash
-# 确保已经安装了依赖
-npm install
-```
-
-```bash
 # 启动开发服务器
 npm run dev
 ```
 
-访问 http://localhost:5173 就能看到我们的作品啦！ 🎉
+访问 http://localhost:5173 注册新账户或使用我们提供的测试账户登录就能看到我们的作品啦！ 🎉
+
+| Username   | Password      |
+|:-----------|:--------------|
+| `admin123` | `admin123456` |
 
 ## 📦 项目依赖
 
@@ -218,9 +234,13 @@ npm run dev
 
 ### 前端依赖
 
-- Axios (^1.7.9) - 优雅的 HTTP 客户端
-- Element Plus (^2.9.1) - 漂亮的 UI 组件库
-- Pinia (^2.2.6) - 新一代状态管理
+- Axios (1.7.9) - 优雅的 HTTP 客户端
+- Element Plus (2.9.1) - 漂亮的 UI 组件库
+- Pinia (2.2.6) - 新一代状态管理
 - 自动导入插件组合拳 (优化开发体验)
-    - Unplugin-auto-import (^0.19.0)
-    - Unplugin-vue-components (^0.28.0)
+    - Unplugin-auto-import (0.19.0)
+    - Unplugin-vue-components (0.28.0)
+
+## 📄 开源协议 (License)
+
+本项目采用 [GPL-3.0](LICENSE) 开源协议。
